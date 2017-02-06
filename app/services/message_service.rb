@@ -5,7 +5,7 @@ class MessageService
     end
 
     def get message
-      MessageDigest.find_by_message(message)
+      MessageDigest.find_by_digest(message)
     end
 
     def digest message

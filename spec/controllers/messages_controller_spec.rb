@@ -11,4 +11,20 @@ describe MessagesController do
       expect(JSON.parse(response.body)).to eq response_body
     end
   end
+
+  describe 'show' do
+    it 'return digested message' do
+      ms = MessageService.create 'foo'
+      get :show, params: {id: ms.digest}
+      response_body = {message: ms.message}.with_indifferent_access
+      expect(JSON.parse(response.body)).to eq response_body
+    end
+
+    it 'return message not found' do
+      ms = MessageService.create 'foo'
+      get :show, params: {id: ms.digest + "messup"}
+      response_body = {err_msg: "Message not found" }.with_indifferent_access
+      expect(JSON.parse(response.body)).to eq response_body
+    end
+  end
 end

@@ -14,8 +14,8 @@ describe MessageService do
 
   describe 'get' do
     it 'return digested message and message' do
-      subject.create 'bar' 
-      expect(subject.get('foo').digest).to eq subject.digest('foo')
+      ms = subject.create 'foo' 
+      expect(subject.get(ms.digest).digest).to eq subject.digest('foo')
     end
   end
 
