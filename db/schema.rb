@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170206044416) do
 
-  create_table "message_digests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "digest",     limit: 65535
+  create_table "message_digests", force: :cascade do |t|
+    t.text     "digest"
     t.string   "message"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
