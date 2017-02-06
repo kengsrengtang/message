@@ -1,0 +1,2 @@
+class MessageDigest < ApplicationRecord
+end
